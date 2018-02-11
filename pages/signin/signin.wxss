@@ -22,22 +22,22 @@ textarea {
   font-size: 30rpx;
   border-width: 5rpx;
   border-style: solid;
-  border-color: #eace38;
+  border-color: #eaeaea;
   border-radius: 20rpx;
   text-align: center;
   padding: 12rpx;
   margin: 20rpx 0;
   height: 40rpx;
-  width: 60%;
+  width: 450rpx;
 }
 
 button {
   margin-top: 10%;
   background: radial-gradient(circle, #df3043, #eb6646);
-  width: 60%;
+  width: 450rpx;
 }
 
-.submit {
+.switch {
   color: #b1aa96;
   font-size: 24rpx;
 }

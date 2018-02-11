@@ -5,13 +5,13 @@
   <text id='appName'>医学院党支部</text>
 </view>
 
-<view class='container' id='form'>
-  <textarea id='studentID' placeholder='学号'></textarea>
-  <textarea id='password1' placeholder='密码'></textarea>
-  <textarea id='password2' hidden="{{isSignIn}}" placeholder='确认密码'></textarea>
-  <textarea id='validationCode' hidden="{{isSignIn}}" placeholder='验证码'></textarea>
-  <button type='primary' id='signIn' hidden="{{!isSignIn}}">登录</button>
-  <button type='primary' id='signUp' hidden="{{isSignIn}}">注册</button>
-  <text class='submit' id='inToOn' bindtap='switchSign' hidden="{{!isSignIn}}">没有账号？立即注册！</text>
-  <text class='submit' id='onToIn' bindtap='switchSign' hidden="{{isSignIn}}">已有账号？立即登录！</text>
+<view class='container'>
+  <form bindsubmit='submit'>
+    <textarea name='studentID' placeholder='学号'></textarea>
+    <textarea name='password1' placeholder='密码'></textarea>
+    <textarea name='password2' hidden="{{isSignIn}}" placeholder='确认密码'></textarea>
+    <textarea name='validationCode' hidden="{{isSignIn}}" placeholder='验证码'></textarea>
+    <button type='primary' form-type='submit'>{{buttonText}}</button>
+  </form>
+  <text class='switch' bindtap='switchSign'>{{hintText}}</text>
 </view>
