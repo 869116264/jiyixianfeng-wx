@@ -6,29 +6,38 @@
 }
 
 #appIcon {
-  width: 200rpx;
+  width: 250rpx;
   height: 200rpx;
-  margin: 20rpx;
   border-radius: 50%;
 }
 
-text {
+#appName {
   border: 5rpx;
   font-size: 36rpx;
-  color: #919491;
+  font-weight: bold;
+  color: #df2c28;
 }
 
 textarea {
-  font-size: 24rpx;
-  border-width: 0 0 1rpx 0;
+  font-size: 30rpx;
+  border-width: 5rpx;
   border-style: solid;
-  border-color: black;
+  border-color: #eace38;
+  border-radius: 20rpx;
+  text-align: center;
+  padding: 12rpx;
   margin: 20rpx 0;
-  height: 50rpx;
+  height: 40rpx;
   width: 60%;
 }
 
 button {
+  margin-top: 10%;
+  background: radial-gradient(circle, #df3043, #eb6646);
   width: 60%;
 }
 
+.submit {
+  color: #b1aa96;
+  font-size: 24rpx;
+}
