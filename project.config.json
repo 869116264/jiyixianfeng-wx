@@ -8,10 +8,12 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.91",
-	"appid": "wx68154f5e59459bed",
-	"projectname": "PartyAnimal",
+	"libVersion": "2.0.0",
+	"appid": "wx1854394e5fa47754",
+	"projectname": "%E6%B5%8E%E5%8C%BB%E5%85%88%E9%94%8B",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

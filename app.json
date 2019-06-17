@@ -1,12 +1,51 @@
 {
-  "pages":[
-    "pages/signin/signin",
+  "pages": [
+    "pages/login/login",
+    "pages/completeInfo/completeInfo",
+    "pages/footprint/footprint",
+    "pages/annualReport/annualReport",
+    "pages/development/development",
+    "pages/editExperience/editExperience",
+    "pages/selfValidate/selfValidate",
+    "pages/selfActivityList/selfActivityList",
+    "pages/activity/activity",
+    "pages/mine/mine",
+    "pages/editInfo/editInfo",
+    "pages/activityDetail/activityDetail",
+    "pages/signup/signup",
+    "pages/setPassword/setPassword",
+    "pages/validationCode/validationCode",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "济医先锋",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7f8369",
+    "selectedColor": "#ffc214",
+    "list": [
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "活动",
+        "iconPath": "./resources/icon/tab/activity_off.png",
+        "selectedIconPath": "./resources/icon/tab/activity_on.png"
+      },
+      {
+        "pagePath": "pages/development/development",
+        "text": "成长",
+        "iconPath": "./resources/icon/tab/development_off.png",
+        "selectedIconPath": "./resources/icon/tab/development_on.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./resources/icon/tab/mine_off.png",
+        "selectedIconPath": "./resources/icon/tab/mine_on.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }
