@@ -1,0 +1,46 @@
+/* pages/editExperience/editExperience.wxss */
+
+view {
+  background: #fff;
+}
+
+textarea {
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #111;
+  width: 690rpx;
+}
+
+button {
+  margin: 96rpx 40rpx 20rpx 40rpx;
+  color: #fff;
+  background: #ffbe00;
+}
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.item-content {
+  display: block;
+  width: 70%;
+  font-size: 28rpx;
+  color: #4a4a4a;
+  margin: auto 0 auto auto;
+  height: 28rpx;
+}
+
+.list-item {
+  border-bottom: solid 1px #dbdbdb;
+  height: 80rpx;
+}
+
+.item-name {
+  display: block;
+  margin: auto auto auto 28rpx;
+  font-size: 28rpx;
+  color: #4a4a4a;
+  height: 28rpx;
+}

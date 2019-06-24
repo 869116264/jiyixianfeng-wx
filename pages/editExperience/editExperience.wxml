@@ -1,0 +1,20 @@
+<!--pages/editExperience/editExperience.wxml-->
+
+<form bindsubmit='submit'>
+
+  <view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>心得标题</text>
+      <input class='item-content' placeholder='请输入心得标题' name='experience_title' value='{{my_title}}'></input>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>心得内容（上限1000字）</text>
+    </view>
+    <view class='list-item' style='height: 400rpx; border: none;'>
+      <textarea adjust-position="true" placeholder='请填写心得内容' maxlength='1000' name='experience' value='{{my_experience}}' />
+    </view>
+  </view>
+
+  <button form-type='submit'>完成编辑</button>
+
+</form>

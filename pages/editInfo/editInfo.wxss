@@ -1,0 +1,33 @@
+/* pages/editInfo/editInfo.wxss */
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 0;
+}
+
+.form-input {
+  border-top: solid 1rpx #888888;
+}
+
+.input-text {
+  width: 182rpx;
+  font-size: 36rpx;
+  color: #151515;
+  margin-left: 30rpx;
+  margin-top: 26rpx;
+  margin-bottom: 26rpx;
+}
+
+.input-content {
+  color: #ffbe00;
+  font-size: 36rpx;
+  margin: 30rpx auto 26rpx 0;
+}
+
+.next {
+  margin: 48rpx 40rpx 0 40rpx;
+  background: #ffbe00;
+  color: #faedcd;
+}

@@ -1,0 +1,54 @@
+/* pages/validationCode/validationCode.wxss */
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 0;
+}
+
+.form-input {
+  border-top: solid 1rpx #888888;
+}
+
+.input-text {
+  width: 182rpx;
+  font-size: 36rpx;
+  color: #151515;
+  margin-left: 30rpx;
+  margin-top: 26rpx;
+  margin-bottom: 26rpx;
+}
+
+.input-content {
+  font-size: 36rpx;
+  margin: 30rpx auto 26rpx 0;
+}
+
+.captcha {
+  width: 210rpx;
+  font-size: 30rpx;
+  color: #ffbe00;
+  background: #fff;
+  border-left: solid 1rpx #888888;
+  border-radius: 0;
+  padding: 16rpx 0;
+}
+
+.next {
+  margin: 48rpx 40rpx 0 40rpx;
+  background: #ffbe00;
+  color: #faedcd;
+}
+
+.input-icon {
+  width: 34rpx;
+  height: 26rpx;
+  margin: auto 30rpx auto auto;
+}
+
+.pw-icon {
+  width: 30rpx;
+  height: 36rpx;
+  margin: auto auto auto 30rpx;
+}

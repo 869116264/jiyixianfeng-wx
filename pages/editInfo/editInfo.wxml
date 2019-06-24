@@ -1,0 +1,14 @@
+<!--pages/editInfo/editInfo.wxml-->
+
+<form>
+  <view class='flex-wrp form-input' style='margin-top: 30rpx; border: none;'>
+    <text class='input-text'>修改前</text>
+    <input disabled='true' placeholder='{{old}}' class='input-content' name='old'></input>
+  </view>
+
+  <view class='flex-wrp form-input'>
+    <text class='input-text'>修改后</text>
+    <input class='input-content' name='new'></input>
+  </view>
+  <button form-type='submit' class='next'>提交</button>
+</form>

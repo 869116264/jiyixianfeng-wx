@@ -1,0 +1,45 @@
+<!--pages/activity/activity.wxml-->
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view wx:for="{{activityArray}}">
+  <view class='act' bindtap='openActivityDetail' id='{{item.id}}'>
+    <view class='flex-wrp act_content'>
+      <image src='../../resources/icon/activity/type{{item.type}}.png' class='act_type_icon'></image>
+      <view class='text-block'>
+        <text class='act_credit'>{{item.hours}}学时\n</text>
+        <text class='act_name'>{{item.title}}\n</text>
+        <text class='act_time_location'>{{item.start_sign_time}}\n</text>
+        <text class='act_time_location' id='location'>{{item.location}}\n</text>
+      </view>
+    </view>
+    <view class='flex-wrp act_status'>
+      <view class='stage'>
+        <image src='../../resources/icon/activity/stage_1_{{(item.student_state>=2)?"on":"off"}}.png' class='icon_stage'></image>
+        <text class='text_stage_{{(item.student_state>=2)?"on":"off"}}'>报名</text>
+      </view>
+      <view class='line_{{(item.student_state>=3)?"on":"off"}}'></view>
+      <view class='stage'>
+        <image src='../../resources/icon/activity/stage_2_{{(item.student_state>=3)?"on":"off"}}.png' class='icon_stage'></image>
+        <text class='text_stage_{{(item.student_state>=3)?"on":"off"}}'>签到</text>
+      </view>
+      <view class='line_{{(item.student_state==4 || item.student_state==6)?"on":"off"}}'></view>
+      <view class='stage'>
+        <image src='../../resources/icon/activity/stage_3_{{(item.student_state==4 || item.student_state==6)?"on":"off"}}.png' class='icon_stage'></image>
+        <text class='text_stage_{{(item.student_state==4 || item.student_state==6)?"on":"off"}}'>心得</text>
+      </view>
+      <view class='line_{{(item.student_state>=6)?"on":"off"}}'></view>
+      <view class='stage'>
+        <image src='../../resources/icon/activity/stage_4_{{(item.student_state>=6)?"on":"off"}}.png' class='icon_stage'></image>
+        <text class='text_stage_{{(item.student_state>=6)?"on":"off"}}'>结束</text>
+      </view>
+    </view>
+  </view>
+
+</view>

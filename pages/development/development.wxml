@@ -1,0 +1,75 @@
+<!--pages/development/development.wxml-->
+
+<view class='user'>
+  <view class='flex-wrp user_content'>
+    <image src='../../resources/image/avatar/avatar_stage{{user.now_stage}}.png' class='user_avatar'></image>
+    <view class='text-block'>
+      <text class='user_name'>{{user.name}}\n</text>
+      <text class='user_stage'>{{stageName[user.now_stage]}}\n</text>
+      <text class='user_next' id='location' wx:if="{{user.now_stage!=6}}">距离下一阶段还有 <text class='text_next'>{{monthDistance?monthDistance:0}}</text> 个月 <text class='text_next'>{{creditDistance?creditDistance:0}}</text> 学时\n</text>
+      <text class='user_next' id='location' wx:if="{{user.now_stage==6}}">距离半年考核标准还有 <text class='text_next'>{{creditDistance?creditDistance:0}}</text> 学时\n</text>
+    </view>
+  </view>
+  <canvas canvas-id="canvas" wx:if="{{user.now_stage==6}}" style="width:750rpx;height:150rpx"></canvas>
+  <view class='flex-wrp user_stage_icons' wx:if="{{user.now_stage != 6}}">
+    <view class='stage'>
+      <image src='../../resources/icon/development/stage_1_{{(user.now_stage>1)?"on":(user.now_stage==1)?"hold":"off"}}.png' class='icon_stage'></image>
+    </view>
+    <view class='line_{{(user.now_stage>1)?"on":"off"}}'></view>
+    <view class='stage'>
+      <image src='../../resources/icon/development/stage_2_{{(user.now_stage>2)?"on":(user.now_stage==2)?"hold":"off"}}.png' class='icon_stage'></image>
+    </view>
+    <view class='line_{{(user.now_stage>2)?"on":"off"}}'></view>
+    <view class='stage'>
+      <image src='../../resources/icon/development/stage_3_{{(user.now_stage>3)?"on":(user.now_stage==3)?"hold":"off"}}.png' class='icon_stage'></image>
+    </view>
+    <view class='line_{{(user.now_stage>3)?"on":"off"}}'></view>
+    <view class='stage'>
+      <image src='../../resources/icon/development/stage_4_{{(user.now_stage>4)?"on":(user.now_stage==4)?"hold":"off"}}.png' class='icon_stage'></image>
+    </view>
+    <view class='line_{{(user.now_stage>4)?"on":"off"}}'></view>
+    <view class='stage'>
+      <image src='../../resources/icon/development/stage_5_{{(user.now_stage>5)?"on":(user.now_stage==5)?"hold":"off"}}.png' class='icon_stage'></image>
+    </view>
+    <view class='line_{{(user.now_stage>5)?"on":"off"}}'></view>
+    <view class='stage'>
+      <image src='../../resources/icon/development/stage_6_{{(user.now_stage>6)?"on":(user.now_stage==6)?"hold":"off"}}.png' class='icon_stage'></image>
+    </view>
+  </view>
+  <view class='flex-wrp user_stage_text' wx:if="{{user.now_stage != 6}}">
+    <text class='text_stage_{{(user.stage>=1)?"on":"off"}}' style='margin-left: 27rpx;'>入党申请人</text>
+    <text class='text_stage_{{(user.stage>=2)?"on":"off"}}' style='margin-left: 8rpx;'>推优对象</text>
+    <text class='text_stage_{{(user.stage>=3)?"on":"off"}}' style='margin-left: 20rpx;'>积极分子</text>
+    <text class='text_stage_{{(user.stage>=4)?"on":"off"}}' style='margin-left: 19rpx;'>发展对象</text>
+    <text class='text_stage_{{(user.stage>=5)?"on":"off"}}' style='margin-left: 20rpx;'>预备党员</text>
+    <text class='text_stage_{{(user.stage>=6)?"on":"off"}}' style='margin-left: 21rpx;'>正式党员</text>
+  </view>
+</view>
+
+<view class='flex-wrp summary_banner'>
+  <view class='summary_item' bindtap='navigateToSelfActivityList'>
+    <image class='summary_icon' src='../../resources/icon/development/validate_activity.png'></image>
+    <text class='summary_text'>自主认证</text>
+  </view>
+  <view class='summary_item' bindtap='navigateToFootprint'>
+    <image class='summary_icon' src='../../resources/icon/development/footprint.png'></image>
+    <text class='summary_text'>足迹</text>
+  </view>
+  <view class='summary_item' id='annual_summary' bindtap='navigateToAnnualReport'>
+    <image class='summary_icon' src='../../resources/icon/development/annual_summary.png'></image>
+    <text class='summary_text'>年终总结</text>
+  </view>
+</view>
+
+
+<view wx:for="{{activityArray}}">
+  <view class='flex-wrp act_item' bindtap='openActivityDetail' id="{{item.id}}">
+    <image src='../../resources/icon/activity/type{{item.type}}.png' class='act_type_icon'></image>
+    <view class='text-block'>
+      <text class='act_name'>{{item.title}}\n</text>
+      <text class='act_time_location'>{{item.start_time}}\n</text>
+      <text class='act_time_location location'>{{item.location}}\n</text>
+      <text class='act_credit'>{{item.hours}} 学时\n</text>
+    </view>
+  </view>
+</view>

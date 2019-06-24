@@ -1,0 +1,41 @@
+<!--pages/signup/signup.wxml-->
+
+<form bindsubmit='signup'>
+  <view class='info'>
+    <view class='layout_horizontal input-box'>
+      <text class='form-label'>学号</text>
+      <input placeholder='请输入学号' type='number' confirm-type='done' bindconfirm='checkStudentID' name='studentID'></input>
+    </view>
+    <view class='layout_horizontal input-box'>
+      <text class='form-label'>姓名</text>
+      <input placeholder='请输入姓名' type='text' confirm-type='done' name='name'></input>
+    </view>
+  </view>
+
+  <view class='layout_horizontal input-box'>
+    <text class='form-label'>党支部</text>
+    <picker mode='selector' range='{{branches}}' bindchange='pickerChange' value='{{branchIndex}}' style='width: 450rpx;'>
+      <view class="picker">
+        {{branches[branchIndex]}}
+      </view>
+    </picker>
+    <image class='icon-access' src='../../resources/icon/activity/access.png'></image>
+  </view>
+  <!-- <view class='layout_horizontal input-box' name='code'>
+    <text class='form-label'>邀请码</text>
+    <input placeholder='请输入邀请码' type='number' confirm-type='done'></input>
+  </view> -->
+
+  <view class='flex-wrp form-input'>
+    <image class='pw-icon' src='../../resources/icon/login/password.png'></image>
+    <input class='input-text input-content' placeholder='请输入密码' type='password' confirm-type='done' name='password'></input>
+  </view>
+
+  <view class='flex-wrp form-input'>
+    <image class='pw-icon' src='../../resources/icon/login/password.png'></image>
+    <input class='input-text input-content' placeholder='请确认密码' type='password' confirm-type='done' name='confirmPassword'></input>
+  </view>
+
+  <button form-type='submit'>完成</button>
+
+</form>

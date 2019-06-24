@@ -1,0 +1,21 @@
+<!--pages/selfActivityList/selfActivityList.wxml-->
+
+<view wx:for="{{activityArray}}">
+  <view class='flex-wrp act_item' bindtap='openActivityDetail' id="{{item.id}}">
+    <image src='../../resources/icon/activity/type{{item.type}}.png' class='act_type_icon'></image>
+    <view class='text-block'>
+      <text class='act_name'>{{item.name}}\n</text>
+      <text class='act_time_location'>{{item.host}}\n</text>
+      <text class='act_time_location location'>{{item.location}}\n</text>
+      <text class='act_credit'>{{item.hours}} 学时\n</text>
+    </view>
+    <text class='status{{item.need_verify}}'>{{statusList[item.need_verify]}}</text>
+  </view>
+</view>
+<view wx:if="{{activityArray.length == 0}}" id='empty-hint'>
+<text>当前还没有自主认证的活动</text>
+</view>
+<view class='empty'></view>
+<view class='button-view'>
+  <button bindtap='navigateToSelfValidate'>自主认证新活动</button>
+</view>

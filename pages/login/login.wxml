@@ -1,0 +1,30 @@
+<!--pages/login/login.wxml-->
+
+<image src='../../resources/image/login/background.png' class='bg' mode='widthFix'></image>
+<image src='../../resources/image/login/thumbnail.png' class='thumbnail'></image>
+<text class='title'>· 济 医 先 锋 ·</text>
+
+<form bindsubmit='login' report-submit='true'>
+  <view class='flex-wrp form-input'>
+    <text class='input-text'>学号</text>
+    <input placeholder='请输入您的学号' value='{{studentID}}' class='input-content' type='number' name='studentID'></input>
+  </view>
+
+  <view class='flex-wrp form-input pwbox'>
+    <text class='input-text'>密码</text>
+    <input placeholder='请输入登录密码' value='{{password}}' class='input-content' password='{{password_display?false:true}}' name='password' required>{{password}}</input>
+    <image src='../../resources/icon/login/password_display_{{password_display?"on":"off"}}.png' class='input-icon' bindtap='switchPasswordDisplay'></image>
+  </view>
+
+  <view class='flex-wrp password-store'>
+    <image src='../../resources/icon/login/password_store_{{password_store?"on":"off"}}.png' class='icon-password-store' bindtap='switchPasswordStore'></image>
+    <text style='color:#ffbe00; font-size:24rpx; margin-left:10rpx;'>记住密码</text>
+  </view>
+
+  <button form-type='submit'>登录</button>
+</form>
+
+<view class='flex-wrp hints'>
+  <text style='margin: 0 auto 0 20rpx;' bindtap='navigateToRetrievePassword' class='hint'>忘记密码</text>
+  <text style='margin: 0 20rpx 0 auto;' bindtap='navigateToSignUp'>没有账号，去<text class='hint'>注册</text>？</text>
+</view>

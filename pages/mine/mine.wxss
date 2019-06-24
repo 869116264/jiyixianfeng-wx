@@ -1,0 +1,40 @@
+/* pages/mine/mine.wxss */
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.list-item {
+  padding: 21rpx 30rpx;
+  border-bottom: solid 1px #dbdbdb;
+}
+
+.item-name {
+  margin: auto auto auto 0;
+  font-size: 36rpx;
+  color: #111;
+}
+
+.avatar {
+  width: 130rpx;
+  height: 130rpx;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.item-content {
+  color: #888;
+  font-size: 36rpx;
+}
+
+.access {
+  margin: auto 0 auto auto;
+  width: 20rpx;
+  height: 40rpx;
+}
+
+#modify_password{
+  margin-top: 20rpx;
+}

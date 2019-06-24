@@ -1,0 +1,106 @@
+/* pages/selfActivityList/selfActivityList.wxss */
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.text_block {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty {
+  height: 220rpx;
+}
+
+button {
+  color: #fff;
+  background: #ffbe00;
+}
+
+.button-view {
+  background: #efeff4;
+  padding: 48rpx 40rpx 80rpx 40rpx;
+  position: fixed;
+  width: 670rpx;
+  bottom: 0rpx;
+}
+
+.act_item {
+  margin: 20rpx;
+  border-radius: 8rpx;
+  padding: 32rpx 0 28rpx 30rpx;
+}
+
+.act_type_icon {
+  margin-top: 23rpx;
+  margin-right: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+}
+
+.act_name {
+  display: block;
+  color: #4a4a4a;
+  font-size: 36rpx;
+}
+
+.act_time_location {
+  display: block;
+  color: #888;
+  font-size: 24rpx;
+}
+
+.act_credit {
+  display: block;
+  color: #ff6260;
+  font-size: 24rpx;
+}
+
+.status1 {
+  border-radius: 20rpx;
+  margin: 32rpx 30rpx auto auto;
+  padding: 7rpx 21rpx;
+  background: #dedede;
+  font-size: 26rpx;
+  color: #4a4a4a;
+  flex-shrink: 0;
+}
+
+.status2 {
+  border-radius: 20rpx;
+  margin: 32rpx 30rpx auto auto;
+  padding: 7rpx 21rpx;
+  background: #ffbe00;
+  font-size: 26rpx;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.status3 {
+  border-radius: 20rpx;
+  margin: 32rpx 30rpx auto auto;
+  padding: 7rpx 21rpx;
+  background: #ff6260;
+  font-size: 26rpx;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.act_credit {
+  display: block;
+  color: #ff6260;
+  font-size: 24rpx;
+}
+
+#empty-hint {
+  background: #fff;
+  font-size: 30rpx;
+  color: #888;
+  margin: 20rpx;
+  text-align: center;
+  padding: 40rpx;
+}

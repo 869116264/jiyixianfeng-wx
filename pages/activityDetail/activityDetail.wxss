@@ -1,0 +1,176 @@
+/* pages/activityDetail/activityDetail.wxss */
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.act_content {
+  background: #fff;
+  padding: 60rpx;
+}
+
+.act_type_icon {
+  margin-right: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink:0;
+}
+
+.text_block {
+  display: flex;
+  flex-direction: column;
+}
+
+.act_credit {
+  display: block;
+  color: #ff6260;
+  font-size: 24rpx;
+}
+
+.act_name {
+  display: block;
+  margin-top: 10rpx;
+  color: #111;
+  font-size: 50rpx;
+}
+
+.nav {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.default {
+  line-height: 100rpx;
+  text-align: center;
+  flex: 1;
+  border-right: none;
+  color: #888;
+  font-size: 30rpx;
+}
+
+.red {
+  line-height: 100rpx;
+  text-align: center;
+  color: #4a4a4a;
+  flex: 1;
+  border-right: none;
+  border-bottom: 4rpx solid #ffbe00;
+  font-size: 30rpx;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+  text-align: center;
+  line-height: 200px;
+}
+
+.item-content {
+  display: block;
+  width: 60%;
+  font-size: 24rpx;
+  color: #4a4a4a;
+  margin-top: 28rpx;
+  margin-bottom: 28rpx;
+}
+
+.list-item {
+  border-bottom: solid 1px #dbdbdb;
+}
+
+.item-name {
+  margin: 28rpx 80rpx 28rpx 30rpx;
+  font-size: 24rpx;
+  color: #4a4a4a;
+  width: 110rpx;
+}
+
+.from-to {
+  color: #888;
+  margin-right: 30rpx;
+}
+
+progress {
+  display: block;
+  width: 300rpx;
+  margin-top: 37rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.content {
+  margin: 30rpx;
+  color: #888;
+  font-size: 24rpx;
+  width: 690rpx;
+  text-align: left;
+}
+
+button {
+  color: #fff;
+  background: #ffbe00;
+}
+
+.button-view {
+  background: #fff;
+  padding: 48rpx 40rpx 80rpx 40rpx;
+  position: fixed;
+  width: 670rpx;
+  bottom: 0rpx;
+}
+
+.empty {
+  height: 220rpx;
+}
+
+.text_block {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-location {
+  width: 39rpx;
+  height: 64rpx;
+  margin-right: 30rpx;
+}
+
+.label-location {
+  display: block;
+  color: #888;
+  font-size: 24rpx;
+}
+
+.icon-access {
+  width: 16rpx;
+  height: 26rpx;
+  margin: auto 0 auto auto;
+}
+
+.icon_avatar {
+  width: 56rpx;
+  height: 56rpx;
+  margin: 18rpx 39rpx 18rpx 40rpx;
+}
+
+.experience {
+  color: #888;
+  margin-right: 18rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  color: #111;
+}
+
+.thumbUp {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 30rpx 10rpx auto auto;
+}

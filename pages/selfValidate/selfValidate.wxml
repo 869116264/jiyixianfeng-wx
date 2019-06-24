@@ -1,0 +1,91 @@
+<!--pages/selfValidate/selfValidate.wxml-->
+
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected1?'red':'default'}}" id="select1" bindtap="switchTab">活动详情</view>
+    <view class="{{selected2?'red':'default'}}" id="select2" bindtap="switchTab">活动心得</view>
+    <view class="{{selected3?'red':'default'}}" id="select3" bindtap="switchTab">证明材料</view>
+  </view>
+</view>
+
+<form bindsubmit='submit'>
+  <view class="{{selected1?'show':'hidden'}}">
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>活动名称</text>
+      <input class='item-content' placeholder='请输入活动名称' name='title' value='{{activity.name}}'></input>
+    </view>
+    <view class='flex-wrp list-item' style='border: none; margin-bottom: 20rpx;'>
+      <text class='item-name'>主办方</text>
+      <input class='item-content' placeholder='请输入活动主办方' name='host' value='{{activity.host}}'></input>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>活动时间</text>
+      <picker class="item-content" mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view>
+          {{date}}
+        </view>
+      </picker>
+    </view>
+    <view class='flex-wrp list-item' style='border: none; margin-bottom: 20rpx;'>
+      <text class='item-name'>活动地点</text>
+      <input class='item-content' placeholder='请输入活动地点' name='location' value='{{activity.location}}'></input>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>活动类型</text>
+      <picker class="item-content" value="{{type}}" bindchange="bindTypeChange" range='{{typeArray}}'>
+        <view>
+          {{typeArray[type]}}
+        </view>
+      </picker>
+    </view>
+    <view class='flex-wrp list-item' style='border: none; margin-bottom: 20rpx;'>
+      <text class='item-name'>活动学时</text>
+      <picker class="item-content" value="{{credit}}" bindchange="bindCreditChange" range='{{["0 学时","1 学时","2 学时","3 学时","4 学时"]}}'>
+        <view>
+          {{credit}} 学时
+        </view>
+      </picker>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>活动内容</text>
+    </view>
+    <view class='list-item' style='height: auto;'>
+      <textarea adjust-position="true" auto-height='true' placeholder='请填写活动内容' maxlength='400' name='content' value='{{activity.content}}' />
+    </view>
+  </view>
+
+  <view class="{{selected2?'show':'hidden'}}">
+    <view>
+      <view class='flex-wrp list-item'>
+        <text class='item-name'>心得标题</text>
+        <input class='item-content' placeholder='请输入心得标题' name='experience_title' value='{{activity.experience_title}}'></input>
+      </view>
+      <view class='flex-wrp list-item'>
+        <text class='item-name'>心得内容（上限1000字）</text>
+      </view>
+      <view class='list-item' style='height: 360rpx; border: none;'>
+        <textarea adjust-position="true" placeholder='请填写心得内容' maxlength='400' name='experience' value='{{activity.experience}}' />
+      </view>
+    </view>
+  </view>
+
+  <view class="{{selected3?'show':'hidden'}}">
+  <view class='file-title-view'>
+    <text class='file-title'>材料登记类型（可多选）</text>
+  </view>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox flex-wrp" wx:for="{{items}}">
+        <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#ffbe00" />
+        <view class='label-text'>
+          <text>{{item.value}}</text>
+        </view>
+      </label>
+    </checkbox-group>
+  </view>
+
+  <view class='empty'></view>
+  <view class='button-view'>
+    <button form-type='submit'>保存</button>
+  </view>
+
+</form>

@@ -1,0 +1,41 @@
+<!--pages/mine/mine.wxml-->
+
+<view class='flex-wrp list-item'>
+  <text class='item-name'>头像</text>
+  <image src="../../resources/image/avatar/avatar_stage{{user.now_stage}}.png" class='avatar'></image>
+</view>
+
+<view class='flex-wrp list-item' id="number">
+  <text class='item-name'>学号</text>
+  <text class='item-content'>{{user.number}}</text>
+</view>
+
+<view class='flex-wrp list-item' id="name">
+  <text class='item-name'>姓名</text>
+  <text class='item-content'>{{user.name}}</text>
+</view>
+
+<view class='flex-wrp list-item' id="phone">
+  <text class='item-name'>手机</text>
+  <text class='item-content'>{{user.phone}}</text>
+</view>
+
+<view class='flex-wrp list-item' id="major">
+  <text class='item-name'>专业</text>
+  <text class='item-content'>{{user.major}}</text>
+</view>
+
+<view class='flex-wrp list-item' id="party_branch">
+  <text class='item-name'>党支部</text>
+  <text class='item-content'>{{party_branch_name[user.party_branch_id]}}</text>
+</view>
+
+<view class='flex-wrp list-item'>
+  <text class='item-name'>成长阶段</text>
+  <text class='item-content'>{{stageName[user.now_stage]}}</text>
+</view>
+
+<view class='flex-wrp list-item' id='modify_password' bindtap='navigateToSetPassword'>
+  <text class='item-name'>修改密码</text>
+  <image src='../../resources/icon/mine/access.png' class='access'></image>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/annualReport/annualReport.wxml-->
+<canvas canvas-id="canvas" style="width:750rpx;height:1420rpx" bindlongtap='saveImage'></canvas>

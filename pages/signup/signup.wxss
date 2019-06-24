@@ -1,0 +1,69 @@
+/* pages/signup/signup.wxss */
+
+.input-box {
+  background: white;
+  height: 60rpx;
+  padding-top: 15rpx;
+  font-size: 30rpx;
+  border-top: solid 1rpx gainsboro;
+  border-bottom: solid 1rpx gainsboro;
+}
+
+.layout_horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-label {
+  text-align: center;
+  width: 30%;
+}
+
+input {
+  width: 70%;
+}
+
+.info {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.icon-access {
+  width: 16rpx;
+  height: 26rpx;
+  margin: 13rpx 30rpx 0 auto;
+}
+/* pages/setPassword/setPassword.wxss */
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.form-input {
+  margin: 30rpx 0 0 0;
+  padding: 22rpx 40rpx;
+}
+
+.input-content {
+  font-size: 30rpx;
+}
+
+.input-icon {
+  width: 34rpx;
+  height: 26rpx;
+  margin: 12rpx 0 12rpx auto;
+}
+
+.pw-icon {
+  width: 30rpx;
+  height: 36rpx;
+  margin: auto 90rpx auto 0;
+}
+
+button {
+  margin: 80rpx 40rpx 0 40rpx;
+  background: #ffbe00;
+  color: #faedcd;
+}

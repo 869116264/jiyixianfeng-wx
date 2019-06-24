@@ -1,0 +1,85 @@
+/* pages/login/login.wxss */
+
+.bg {
+  width: 100%;
+  height: 509rpx;
+  margin-bottom: 0;
+}
+
+.thumbnail {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 100%;
+  position: absolute;
+  top: 86rpx;
+  left: 275rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  color: #111111;
+  position: absolute;
+  top: 312rpx;
+  left: 258rpx;
+}
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.form-input {
+  border: solid #888888 2rpx;
+  border-radius: 10rpx;
+  margin: 40rpx;
+  padding: 22rpx 40rpx;
+}
+
+.input-text {
+  margin-right: 60rpx;
+  font-size: 36rpx;
+  color: #111111;
+}
+
+.input-icon {
+  width: 34rpx;
+  height: 26rpx;
+  margin: 12rpx 0 12rpx auto;
+}
+
+.input-content {
+  font-size: 30rpx;
+}
+
+.pwbox {
+  margin-bottom: 20rpx;
+}
+
+.password-store {
+  width: 136rpx;
+  background: #efeff4;
+  margin: 0 40rpx 0 auto;
+}
+
+.icon-password-store {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+button {
+  margin: 96rpx 40rpx 20rpx 40rpx;
+  color: #fff;
+  background: #ffbe00;
+}
+
+.hints {
+  background: #efeff4;
+  margin: 0 40rpx;
+  font-size: 24rpx;
+  color: #bdbdbd;
+}
+
+.hint {
+  color: #ffbe00;
+}

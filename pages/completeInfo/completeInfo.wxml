@@ -1,0 +1,82 @@
+<!--pages/completeInfo/completeInfo.wxml-->
+<form bindsubmit='complete'>
+  <view class='flex-wrp form-input' style='margin-top: 30rpx;border-top: 0;'>
+    <text class='input-text'>区号</text>
+    <input value='中国（+86）' class='input-content' type='text' disabled='true'></input>
+  </view>
+
+  <view class='flex-wrp form-input'>
+    <text class='input-text'>手机号</text>
+    <input placeholder='填写手机号' class='input-content' type='number' name='phone' style='width: 322rpx;' bindinput='refreshNumber'></input>
+    <button class="captcha" bindtap="captcha" disabled="{{captchaDisabled}}" disabled-class="disabled">{{captchaLabel}}</button>
+  </view>
+
+  <view class='flex-wrp form-input'>
+    <text class='input-text'>验证码</text>
+    <input placeholder='输入验证码' class='input-content' type='number' bindblur='checkCaptcha' bindconfirm='checkCaptcha'> {{captchaLabel}}</input>
+  </view>
+  <view class='flex-wrp form-input' style='margin-top: 30rpx;border-top: 0;'>
+    <text class='input-text'>党内身份</text>
+    <picker mode='selector' range='{{identities}}' bindchange='pickerChange' value='{{identityIndex}}' name='now_stage'>
+      <view class="picker">
+        {{identities[identityIndex]}}
+      </view>
+    </picker>
+    <image class='icon-access' src='../../resources/icon/activity/access.png'></image>
+  </view>
+
+  <view class='flex-wrp form-input'>
+    <text class='input-text'>学院</text>
+    <input placeholder='请输入您的学院' class='input-content' type='text' name='school'></input>
+  </view>
+
+  <view class='flex-wrp form-input'>
+    <text class='input-text'>专业</text>
+    <input placeholder='请输入您的专业' class='input-content' type='text' name='major'></input>
+  </view>
+
+  <view style='margin-top: 30rpx;'>
+    <view class='flex-wrp form-input' style='border-top: 0;' wx:if="{{identityIndex>=1}}">
+      <text class='input-text' style='font-size: 24rpx; width:280rpx;'>成为入党申请人时间</text>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange1" name="stage1_time">
+        <view class='picker' style='font-size: 24rpx;'>
+          {{date1 != null? date1:"未选择"}}
+        </view>
+      </picker>
+    </view>
+    <view class='flex-wrp form-input' wx:if="{{identityIndex>=2}}">
+      <text class='input-text' style='font-size: 24rpx; width:280rpx;'>成为推优对象时间</text>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange2" name="stage2_time">
+        <view class="picker" style="font-size: 24rpx;">
+          {{date2 != null? date2:"未选择"}}
+        </view>
+      </picker>
+    </view>
+    <view class='flex-wrp form-input' wx:if="{{identityIndex>=3}}">
+      <text class='input-text' style='font-size: 24rpx; width:280rpx;'>成为积极分子时间</text>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange3" name="stage3_time">
+        <view class="picker" style="font-size: 24rpx;">
+          {{date3 != null? date3:"未选择"}}
+        </view>
+      </picker>
+    </view>
+    <view class='flex-wrp form-input' wx:if="{{identityIndex>=4}}">
+      <text class='input-text' style='font-size: 24rpx; width:280rpx;'>成为发展对象时间</text>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange4" name="stage4_time">
+        <view class="picker" style="font-size: 24rpx;">
+          {{date4 != null? date4:"未选择"}}
+        </view>
+      </picker>
+    </view>
+    <view class='flex-wrp form-input' wx:if="{{identityIndex>=5}}">
+      <text class='input-text' style='font-size: 24rpx; width:280rpx;'>成为预备党员时间</text>
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange5" name="stage5_time">
+        <view class="picker" style='font-size: 24rpx;'>
+          {{date5 != null? date5:"未选择"}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <button form-type='submit' class='next' disabled='{{!captchaChecked}}'>完成</button>
+</form>

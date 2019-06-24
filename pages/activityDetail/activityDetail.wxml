@@ -1,0 +1,124 @@
+<!--pages/activityDetail/activityDetail.wxml-->
+
+
+<view class='flex-wrp act_content'>
+  <image src='../../resources/icon/activity/type{{activity.type}}.png' class='act_type_icon'></image>
+  <view class='text-block'>
+    <text class='act_credit'>{{activity.hours}}学时\n</text>
+    <text class='act_name'>{{activity.title}}\n</text>
+  </view>
+</view>
+
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected1?'red':'default'}}" id="select1" bindtap="switchTab">活动详情</view>
+    <view class="{{selected2?'red':'default'}}" id="select2" bindtap="switchTab">活动签到</view>
+    <view class="{{selected3?'red':'default'}}" id="select3" bindtap="switchTab">活动心得</view>
+  </view>
+  <view class="{{selected1?'show':'hidden'}}">
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>活动时间</text>
+      <text class='item-content'><text class='from-to'>从</text>{{activity.start_time}}</text>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'></text>
+      <text class='item-content'><text class='from-to'>至</text>{{activity.end_time}}</text>
+    </view>
+    <view class='flex-wrp list-item' style='border: none;'>
+      <text class='item-name'>活动地点</text>
+      <text class='item-content'>{{activity.location?activity.location:"未确认"}}</text>
+    </view>
+    <view class='flex-wrp list-item' style='margin-top: 20rpx;'>
+      <text class='item-name'>报名时间</text>
+      <text class='item-content'><text class='from-to'>从</text>{{activity.start_sign_time}}</text>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'></text>
+      <text class='item-content'><text class='from-to'>至</text>{{activity.end_sign_time}}</text>
+    </view>
+    <view class='flex-wrp'>
+      <text class='item-name'>报名人数</text>
+      <progress percent="{{activity.people_number*100/activity.max_people_number}}" backgroundColor='#efeff4' activeColor='#ffbe00' />
+      <text class='item-content' style='margin-left:20rpx; width: 20%;'>{{activity.people_number}}/{{activity.max_people_number}}</text>
+    </view>
+    <view class='flex-wrp list-item' style='margin-top: 20rpx;'>
+      <text class='item-name'>活动内容</text>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='content'>{{activity.content}}</text>
+    </view>
+    <view class='empty'></view>
+
+    <view class='button-view'>
+      <button bindtap='registerForActivity' disabled='{{activity.applied || activity.state<2}}'>{{activity.applied?"已报名":"报名"}}</button>
+    </view>
+
+  </view>
+  <view class="{{selected2?'show':'hidden'}}">
+    <view class='flex-wrp' style='padding: 20rpx 30rpx 20rpx 70rpx; border-bottom: solid 1rpx #dbdbdb;' bindtap='chooseCheckInLocation'>
+      <image class='icon-location' src='../../resources/icon/activity/location.png'></image>
+      <view class='text-block'>
+        <text class='label-location'>签到地点\n</text>
+        <text class='text-location'>{{checkInLocation}}</text>
+      </view>
+      <image class='icon-access' src='../../resources/icon/activity/access.png'></image>
+    </view>
+    <button style='margin:48rpx;' bindtap='submitCheckInLocation' disabled='{{!(activity.applied) || user_activity.state>=3 || !locationChosen}}'>{{(user_activity.state>=3)?"已签到":"签到"}}</button>
+  </view>
+  <view class="{{selected3?'show':'hidden'}}">
+    <view class='flex-wrp list-item' style='margin-bottom: 20rpx;'>
+      <text class='item-name'>截止日期</text>
+      <text class='item-content'>{{activity.end_time}}</text>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>我的心得</text>
+    </view>
+    <view class='flex-wrp list-item' style='margin-bottom: 20rpx;'>
+      <image class='icon_avatar' style='flex-shrink:0' src='../../resources/image/mascot/default_avatar.png'></image>
+      <view class='text-block'>
+        <view class='flex-wrp' style='width: 624rpx;'>
+          <view class='text-block'>
+            <text class='flex-wrp experience' style='font-size:24rpx; margin-top: 18rpx; margin-bottom: 4rpx;'>{{user.name}}\n</text>
+            <!-- <text class='flex-wrp experience' style='font-size:24rpx; margin-top: 0; margin-bottom: 4rpx;'>{{user_activity.time}}\n</text> -->
+          </view>
+          <image class='thumbUp' src='../../resources/icon/activity/edit.png' bindtap='navigateToEditExperience'></image>
+          <text class='flex-wrp' style='font-size: 24rpx; margin:30rpx 44rpx auto 10rpx; color: #ffbe00;' bindtap='navigateToEditExperience'>编辑</text>
+        </view>
+        <!-- <text class='flex-wrp title'>{{user.title?user.title:"未填写"}}</text> -->
+        <text class='flex-wrp experience' style='font-size:24rpx; margin-top: 0; margin-bottom: 18rpx;'>{{my_experience?my_experience:"快来和大家分享心得吧！"}}</text>
+      </view>
+    </view>
+
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>心得词云</text>
+    </view>
+    <view style='margin-bottom: 10rpx;'>
+    <image mode='aspectFill' src='https://jyxfwc.igulu.net/api/wordcloud/{{activity.id}}' style='width: 750rpx; height: 420rpx;'></image>
+    </view>
+    <view class='flex-wrp list-item'>
+      <text class='item-name'>精彩心得</text>
+      <text class='item-content'>稍后带来～</text>
+    </view>
+    <view wx:for="{{experience_list}}">
+      <view class='flex-wrp list-item' id='activity_{{item.id}}'>
+        <image class='icon_avatar' src='{{item.avatar}}'></image>
+        <view class='text-block'>
+          <view class='flex-wrp' style='width: 624rpx;'>
+            <view class='text-block'>
+              <text class='flex-wrp experience' style='font-size:24rpx; margin-top: 18rpx; margin-bottom: 4rpx;'>{{item.name}}\n</text>
+              <text class='flex-wrp experience' style='font-size:24rpx; margin-top: 0; margin-bottom: 4rpx;'>{{item.time}}\n</text>
+            </view>
+            <image class='thumbUp' id='thumbup_{{item.sequence}}' bindtap='switchLike' src='../../resources/icon/activity/thumbup_{{item.liked?"on":"off"}}.png'></image>
+            <text class='flex-wrp experience' style='font-size: 24rpx; margin:30rpx 44rpx auto 10rpx;'>{{item.thumbup_count}}</text>
+          </view>
+          <text class='flex-wrp title'>{{item.title?item.title:"未填写"}}</text>
+          <text class='flex-wrp experience' style='font-size:24rpx; margin-top: 0; margin-right: 18rpx; margin-bottom: 18rpx;'>{{item.experience}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='empty'></view>
+    <view class='button-view'>
+      <button bindtap='navigateToEditExperience' disabled='{{!(activity.applied)}}'>编辑心得</button>
+    </view>
+  </view>
+</view>
