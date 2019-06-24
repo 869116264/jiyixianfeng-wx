@@ -8,7 +8,7 @@ Page({
     user: {},
     activityArray: [],
     stageName: ["未选择", "入党申请人", "推优对象", "积极分子", "发展对象", "预备党员", "正式党员"],
-    creditDistance: 0,
+    creditDistance: 16,
     monthDistance: 0,
   },
 
@@ -42,10 +42,64 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const rate = wx.getSystemInfoSync().windowWidth / 375
-    console.log(rate)
-
     var that = this
+    wx.request({
+      url: 'https://igulu.net/api/student/stage',
+      header: cookie.cookie_header(),
+      success: function (res) {
+        that.setData({
+          creditDistance: res.data.credit_distance,
+          monthDistance: res.data.month_distance,
+        })
+        const rate = wx.getSystemInfoSync().windowWidth / 375
+        // console.log(that.data.creditDistance)
+        // var that = this
+        const ctx = wx.createCanvasContext('canvas')
+        ctx.setFillStyle('#f8f4ed')
+        ctx.fillRect(0, 0, 375 * rate, 75 * rate)
+        ctx.draw(true)
+
+        ctx.moveTo(28 * rate, 38 * rate)
+        ctx.lineTo(347 * rate, 38 * rate)
+        ctx.setStrokeStyle('#bdbdbd')
+        ctx.setLineWidth(7 * rate)
+        ctx.setLineCap('round')
+        ctx.stroke()
+
+        ctx.draw(true)
+
+        ctx.setFontSize(12 * rate)
+        ctx.setTextAlign('center')
+        ctx.setFillStyle('#bdbdbd')
+        ctx.fillText('16学时', 347 * rate, 60 * rate)
+
+        console.log(that.data.creditDistance)
+        if (that.data.creditDistance == 0) {
+          ctx.moveTo(28 * rate, 38 * rate)
+          ctx.lineTo((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) * rate, 38 * rate)
+          ctx.setStrokeStyle('#ffbe00')
+          ctx.setLineWidth(7 * rate)
+          ctx.setLineCap('round')
+          ctx.stroke()
+          ctx.drawImage('../../resources/icon/development/running.png', 338 * rate, 8 * rate, 18 * rate, 26 * rate)
+          ctx.draw(true)
+        } else if (that.data.creditDistance < 16) {
+          ctx.moveTo(28 * rate, 38 * rate)
+          ctx.lineTo((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) * rate, 38 * rate)
+          ctx.setStrokeStyle('#ffbe00')
+          ctx.setLineWidth(7 * rate)
+          ctx.setLineCap('round')
+          ctx.stroke()
+          ctx.drawImage('../../resources/icon/development/running.png', ((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) - 4) * rate, 8 * rate, 18 * rate, 26 * rate)
+          ctx.draw(true)
+        }
+
+        ctx.draw(true)
+      }
+    })
+    // const rate = wx.getSystemInfoSync().windowWidth / 375
+    // // console.log(that.data.creditDistance)
+    // var that = this
     // const ctx = wx.createCanvasContext('canvas')
     // ctx.setFillStyle('#f8f4ed')
     // ctx.fillRect(0, 0, 375 * rate, 75 * rate)
@@ -65,29 +119,28 @@ Page({
     // ctx.setFillStyle('#bdbdbd')
     // ctx.fillText('16学时', 347 * rate, 60 * rate)
 
-
-
-    // if (this.data.creditDistance == 0) {
+    // console.log(that.data.creditDistance)
+    // if (that.data.creditDistance == 0) {
     //   ctx.moveTo(28 * rate, 38 * rate)
-    //   ctx.lineTo((28 + (347 - 28) / 16 * (16 - this.data.creditDistance)) * rate, 38 * rate)
+    //   ctx.lineTo((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) * rate, 38 * rate)
     //   ctx.setStrokeStyle('#ffbe00')
     //   ctx.setLineWidth(7 * rate)
     //   ctx.setLineCap('round')
     //   ctx.stroke()
     //   ctx.drawImage('../../resources/icon/development/running.png', 338 * rate, 8 * rate, 18 * rate, 26 * rate)
     //   ctx.draw(true)
-    // } else if (this.data.creditDistance < 16) {
+    // } else if (that.data.creditDistance < 16) {
     //   ctx.moveTo(28 * rate, 38 * rate)
-    //   ctx.lineTo((28 + (347 - 28) / 16 * (16 - this.data.creditDistance)) * rate, 38 * rate)
+    //   ctx.lineTo((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) * rate, 38 * rate)
     //   ctx.setStrokeStyle('#ffbe00')
     //   ctx.setLineWidth(7 * rate)
     //   ctx.setLineCap('round')
     //   ctx.stroke()
-    //   ctx.drawImage('../../resources/icon/development/running.png', ((28 + (347 - 28) / 16 * (16 - this.data.creditDistance)) - 4) * rate, 8 * rate, 18 * rate, 26 * rate)
+    //   ctx.drawImage('../../resources/icon/development/running.png', ((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) - 4) * rate, 8 * rate, 18 * rate, 26 * rate)
     //   ctx.draw(true)
     // }
 
-    ctx.draw(true)
+    // ctx.draw(true)
   },
 
   /**
@@ -131,43 +184,6 @@ Page({
           creditDistance: res.data.credit_distance,
           monthDistance: res.data.month_distance,
         })
-        const ctx = wx.createCanvasContext('canvas')
-        ctx.setFillStyle('#f8f4ed')
-        ctx.fillRect(0, 0, 375 * rate, 75 * rate)
-        ctx.draw(true)
-
-        ctx.moveTo(28 * rate, 38 * rate)
-        ctx.lineTo(347 * rate, 38 * rate)
-        ctx.setStrokeStyle('#bdbdbd')
-        ctx.setLineWidth(7 * rate)
-        ctx.setLineCap('round')
-        ctx.stroke()
-
-        ctx.draw(true)
-
-        ctx.setFontSize(12 * rate)
-        ctx.setTextAlign('center')
-        ctx.setFillStyle('#bdbdbd')
-        ctx.fillText('16学时', 347 * rate, 60 * rate)
-        if (that.data.creditDistance == 0) {
-          ctx.moveTo(28 * rate, 38 * rate)
-          ctx.lineTo((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) * rate, 38 * rate)
-          ctx.setStrokeStyle('#ffbe00')
-          ctx.setLineWidth(7 * rate)
-          ctx.setLineCap('round')
-          ctx.stroke()
-          ctx.drawImage('../../resources/icon/development/running.png', 338 * rate, 8 * rate, 18 * rate, 26 * rate)
-          ctx.draw(true)
-        } else if (that.data.creditDistance < 16) {
-          ctx.moveTo(28 * rate, 38 * rate)
-          ctx.lineTo((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) * rate, 38 * rate)
-          ctx.setStrokeStyle('#ffbe00')
-          ctx.setLineWidth(7 * rate)
-          ctx.setLineCap('round')
-          ctx.stroke()
-          ctx.drawImage('../../resources/icon/development/running.png', ((28 + (347 - 28) / 16 * (16 - that.data.creditDistance)) - 4) * rate, 8 * rate, 18 * rate, 26 * rate)
-          ctx.draw(true)
-        }
       }
     })
 
